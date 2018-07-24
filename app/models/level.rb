@@ -4,6 +4,7 @@ class Level < ActiveRecord::Base
 
   def as_json
     {
+      id: id,
       level: level,
       level_up_items: level_up_items.as_json
     }

@@ -6,6 +6,8 @@ class Armor < ActiveRecord::Base
     {
       id: id,
       name: name,
+      location: location,
+      cost: cost,
       levels: levels.as_json
     }
   end

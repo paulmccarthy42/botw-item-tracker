@@ -95,7 +95,8 @@ LevelUpItem.create!([
   {level_id: 23, item_id: 9, count: 4},
   {level_id: 23, item_id: 10, count: 1},
   {level_id: 24, item_id: 10, count: 2},
-  {level_id: 24, item_id: 11, count: 1}
+  {level_id: 24, item_id: 11, count: 1},
+  {level_id: 13, item_id: 8, count: 1}
 ])
 Player.create!([
   {name: "Link"}

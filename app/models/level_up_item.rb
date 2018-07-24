@@ -4,6 +4,7 @@ class LevelUpItem < ActiveRecord::Base
 
   def as_json
     {
+      id: id,
       count: count,
       name: item.name
     }
