@@ -16,6 +16,7 @@ class ArmorPiece < ActiveRecord::Base
 
   def as_json
     {
+      id: id,
       name: armor.name,
       level: level,
       items_to_upgrade: items_to_upgrade.as_json
