@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import LevelForm from "./LevelForm"
 
 class ArmorForm extends React.Component {
   constructor(props) {
@@ -11,35 +10,35 @@ class ArmorForm extends React.Component {
       upgradeable: false,
       levels: [
         {
-          level1: {
+          1: {
             item1Count: 0,
-            item1Name: null,
+            item1Name: 'banana',
             item2Count: 0,
-            item2Name: null
+            item2Name: 'banana'
           }
         },
         {
-          level2: {
+          2: {
             item1Count: 0,
-            item1Name: null,
+            item1Name: 'banana',
             item2Count: 0,
-            item2Name: null
+            item2Name: 'banana'
           }
         },
         {
-          level3: {
+          3: {
             item1Count: 0,
-            item1Name: null,
+            item1Name: 'banana',
             item2Count: 0,
-            item2Name: null
+            item2Name: 'banana'
           }
         },
         {
-          level4: {
+          4: {
             item1Count: 0,
-            item1Name: null,
+            item1Name: 'banana',
             item2Count: 0,
-            item2Name: null
+            item2Name: 'banana'
           }
         }
       ]
@@ -57,7 +56,7 @@ class ArmorForm extends React.Component {
   }
 
   submit() {
-    console.log(this.state)
+    console.log(this.state.levels)
   }
 
   render () {
@@ -71,12 +70,21 @@ class ArmorForm extends React.Component {
           <div className='level-data'>
             { 
               this.state.levels.map(
-                level => <LevelForm 
-                  key={level.level} 
-                  lvl={level.level} 
-                  items={level.items} 
-                  updateItem={this.updateItem.bind(this)}
-                />
+                level => { 
+                  const levelNum = Object.keys(level)[0];
+                  const levelStats = Object.values(level)[0];
+                  return <div key={levelNum}>
+                    <div>Level {levelNum}</div>
+                    <div>
+                      <input type='number' value={levelStats.item1Count}/><span></span>
+                      <input type='text' value={levelStats.item1Name}/>
+                    </div>
+                    <div>
+                      <input type='number' value={levelStats.item2Count}/>
+                      <input type='text' value={levelStats.item2Name}/>
+                    </div>
+                  </div>
+                }
               )
             }
           </div>
