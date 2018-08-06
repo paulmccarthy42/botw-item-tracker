@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
     duplicative_list = armor_pieces.map { |piece| piece.items_to_upgrade.as_json }.flatten
 
     duplicative_list.each_with_object(Hash.new(0)) do |item, shopping_list|
-      shopping_list[item[:name]] += item[:count]
+      shopping_list[item[:name]] += item[:count] if item
     end
   end
 

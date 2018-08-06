@@ -11,7 +11,9 @@ class App extends React.Component {
       <div>
         <h1>Hey { this.props.player.name }, listen! </h1>
         {
-          this.props.player.armor.map(piece => <ArmorPiece piece={piece.name} key={piece.id} />)
+          this.props.player.armor.map(piece => {
+            return <ArmorPiece piece={piece.name} key={piece.id} />
+          })
         }
       </div>
       );

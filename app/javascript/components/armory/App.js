@@ -12,7 +12,15 @@ class App extends React.Component {
     return (
       <div className="row">
         {
-          this.props.armors.map(armor => <ArmorCard key={armor.id} name={armor.name} levels={armor.levels} />)
+          this.props.armors.map(armor => 
+            <ArmorCard 
+              key={armor.id} 
+              id={armor.id} 
+              name={armor.name} 
+              owned={armor.owned} 
+              levels={armor.levels} 
+            />
+          )
         }
         <button style={{width: '22rem'}}>+</button>
         <ArmorForm />

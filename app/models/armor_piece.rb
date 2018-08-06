@@ -3,11 +3,11 @@ class ArmorPiece < ActiveRecord::Base
   belongs_to :player
 
   def current_level
-    armor.levels.find_by(level: self.level)
+    armor.levels&.find_by(level: self.level)
   end
 
   def items_to_upgrade
-    current_level.level_up_items
+    current_level&.level_up_items
   end
 
   def upgrade

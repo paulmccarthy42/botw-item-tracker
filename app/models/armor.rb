@@ -8,7 +8,9 @@ class Armor < ActiveRecord::Base
       name: name,
       location: location,
       cost: cost,
-      levels: levels.as_json
+      levels: levels.as_json,
+      pieces: armor_pieces.count,
+      owned: armor_pieces.count > 0
     }
   end
 end
