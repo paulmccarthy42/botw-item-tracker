@@ -12,33 +12,33 @@ class ArmorForm extends React.Component {
         {
           1: {
             item1Count: 0,
-            item1Name: 'banana',
+            item1Name: undefined,
             item2Count: 0,
-            item2Name: 'banana'
+            item2Name: undefined
           }
         },
         {
           2: {
             item1Count: 0,
-            item1Name: 'banana',
+            item1Name: undefined,
             item2Count: 0,
-            item2Name: 'banana'
+            item2Name: undefined
           }
         },
         {
           3: {
             item1Count: 0,
-            item1Name: 'banana',
+            item1Name: undefined,
             item2Count: 0,
-            item2Name: 'banana'
+            item2Name: undefined
           }
         },
         {
           4: {
             item1Count: 0,
-            item1Name: 'banana',
+            item1Name: undefined,
             item2Count: 0,
-            item2Name: 'banana'
+            item2Name: undefined
           }
         }
       ]
@@ -49,9 +49,12 @@ class ArmorForm extends React.Component {
     this.setState({upgradeable: !this.state.upgradeable})
   }
 
-  updateItem(level, items) {
-    const newLevels = this.state.levels
-    newLevels[level - 1].items = items
+  handleChange(attribute) {
+    let newLevels = this.state.levels
+    let level = parseInt() // this will always grab #1, but checking out levelNum will always grab 4
+    console.log(newLevels)
+    console.log(level)
+    newLevels[level - 1][level][attribute] = document.getElementById(attribute).value
     this.setState({levels: newLevels})
   }
 
@@ -73,15 +76,35 @@ class ArmorForm extends React.Component {
                 level => { 
                   const levelNum = Object.keys(level)[0];
                   const levelStats = Object.values(level)[0];
-                  return <div key={levelNum}>
+                  return <div key={levelNum} className='header' id={levelNum}>
                     <div>Level {levelNum}</div>
                     <div>
-                      <input type='number' value={levelStats.item1Count}/><span></span>
-                      <input type='text' value={levelStats.item1Name}/>
+                      <input 
+                        type='number'
+                        value={levelStats.item1Count}
+                        className={levelNum}
+                        onChange={() => this.handleChange('item1Count')}
+                      />
+                      <input 
+                        type='text'
+                        value={levelStats.item1Name}
+                        className={levelNum}
+                        onChange={() => this.handleChange('item1Name')}
+                      />
                     </div>
                     <div>
-                      <input type='number' value={levelStats.item2Count}/>
-                      <input type='text' value={levelStats.item2Name}/>
+                      <input 
+                          type='number'
+                          value={levelStats.item2Count}
+                          className={levelNum}
+                          onChange={() => this.handleChange('item2Count')}
+                        />
+                      <input 
+                        type='text'
+                        value={levelStats.item2Name}
+                        className={levelNum}
+                        onChange={() => this.handleChange('item2Name')}
+                      />
                     </div>
                   </div>
                 }
