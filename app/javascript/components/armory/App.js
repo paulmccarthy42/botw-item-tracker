@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import axios from 'axios'
 import ArmorCard from "./ArmorCard"
 import ArmorForm from "./ArmorForm"
 
@@ -18,7 +19,9 @@ class App extends React.Component {
               id={armor.id} 
               name={armor.name} 
               owned={armor.owned} 
-              levels={armor.levels} 
+              levels={armor.levels}
+              items={this.props.items}
+
             />
           )
         }

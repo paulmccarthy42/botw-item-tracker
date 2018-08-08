@@ -6,7 +6,8 @@ class LevelUpItem < ActiveRecord::Base
     {
       id: id,
       count: count,
-      name: item.name
+      name: item.name,
+      level_id: level_id
     }
   end
 end

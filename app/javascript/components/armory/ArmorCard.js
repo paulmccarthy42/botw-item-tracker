@@ -38,7 +38,16 @@ class ArmorCard extends React.Component {
             />
           </h5>
           {
-            this.props.levels.map(level => <Level key={level.id} level={level.level} items={level.level_up_items} />)
+            this.props.levels.map(
+              level => (
+                <Level 
+                  key={level.id}
+                  id={level.id}
+                  level={level.level} 
+                  items={level.level_up_items} 
+                  totalItems={this.props.items}/>
+              )
+            )
           }
         </div>
       </div>
