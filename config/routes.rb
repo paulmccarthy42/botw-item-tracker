@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :players
   resources :armors
+  resources :armor_pieces
   resources :items
   resources :level_up_items
 

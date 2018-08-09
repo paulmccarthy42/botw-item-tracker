@@ -13,7 +13,8 @@ class Player < ActiveRecord::Base
     {
       name: name,
       armor: armor_pieces.as_json,
-      currently_searching_for: currently_searching_for
+      currently_searching_for: currently_searching_for,
+      items: currently_searching_for.keys
     }
   end
 end

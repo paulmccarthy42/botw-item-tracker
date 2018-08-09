@@ -36,7 +36,7 @@ class Items extends React.Component {
     return (
       <div>
         <ul>
-          { this.state.items.map(item => <li key={item.id}>{item.name}</li>)}
+          { this.state.items.map(item => <li key={item.id}>{item.name}</li>)} 
         </ul>
         <input type='text' placeholder='New Item Name' id='name-item' value={this.state.name} onChange={this.updateItem}/>
         <button onClick={this.newItem}>Submit</button>
